@@ -1,7 +1,7 @@
 <?php
 
-require "../partials/_dbConnect.php";
 session_start();
+require "../partials/_dbConnect.php";
 
 if (isset($_POST['admin_login'])) {
     $email = trim($_POST['email']);
@@ -56,14 +56,17 @@ if (isset($_POST['admin_login'])) {
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                 <div class="form-element">
                     <label class="form-label" for="email">Email</label>
-                    <input class="form-input" type="email" name="email" id="email" value="<?php if (isset($_POST['login'])) echo $user_email; ?>" placeholder="E-mail" required />
+                    <input class="form-input" type="email" name="email" id="email"
+                        value="<?php if (isset($_POST['login'])) echo $user_email; ?>" placeholder="E-mail" required />
                 </div>
                 <div class="form-element">
                     <label class="form-label" for="password">Password</label>
-                    <input class="form-input" type="password" name="password" id="password" placeholder="Password" value="<?php if (isset($_POST['login'])) echo ""; ?>" required />
+                    <input class="form-input" type="password" name="password" id="password" placeholder="Password"
+                        value="<?php if (isset($_POST['login'])) echo ""; ?>" required />
                 </div>
                 <div class="form-element">
-                    <input class="form-input button submit-btn" type="submit" value="Login" name="admin_login" id="login">
+                    <input class="form-input button submit-btn" type="submit" value="Login" name="admin_login"
+                        id="login">
                     <div>
                         <a href="#" class="forgot-pass">Forgot Password</a>
                     </div>
@@ -72,7 +75,7 @@ if (isset($_POST['admin_login'])) {
             <hr class="form-line">
             <div class="sign-link">
                 <span>Go to home page ?</span>
-                <a href="./_accessPage.php">Home</a>
+                <a href="../index.php">Home</a>
             </div>
 
         </div>
