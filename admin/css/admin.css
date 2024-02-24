@@ -1,0 +1,316 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+
+:root {
+
+    --blue: #0d6efd;
+    --purple: #6f42c1;
+    --pink: #d63384;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #198754;
+    --gray-dark: #343a40;
+    --cyan: #0dcaf0;
+    --text: #6c757d;
+    --dark: #212529;
+    --light: #fff;
+    --heading: #3E3232;
+    --body: #fafafa;
+    --radius: .5rem;
+    --shadow: box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+}
+
+
+body {
+    width: 100%;
+    height: 100%;
+    background: var(--body);
+}
+
+::-webkit-scrollbar {
+    width: 1.5rem;
+}
+
+
+::-webkit-scrollbar-thumb {
+    display: none;
+    /* background-color: var(--gray-dark);
+    border-radius: 1rem;
+    border: .5rem solid transparent;
+    background-clip: content-box; */
+}
+
+/* By Default CSS style Start*/
+
+.center {
+    text-align: center;
+}
+
+.pad-x {
+    padding: 0 4rem;
+}
+
+.pad-y {
+    padding: 2.5rem 0;
+}
+
+.shadow {
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
+}
+
+.heading {
+    font-size: 3.5rem;
+    color: var(--heading);
+}
+
+.icon {
+    width: 3rem;
+    height: 3rem;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.form-label {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--gray-dark);
+    display: block;
+    padding: .5rem 0;
+    letter-spacing: 1px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: 1px solid var(--gray-dark);
+    border-radius: .5rem;
+    outline: none;
+    margin: .5rem 0;
+    transition: all .2s linear;
+}
+
+.form-input:focus {
+    box-shadow: 0px 0px 7px rgba(128, 128, 128, 0.299);
+}
+
+
+.button {
+    padding: .9rem .6rem;
+    border: none;
+    outline: none;
+    font-size: 1.6rem;
+    font-weight: 600;
+    border-radius: var(--radius);
+    cursor: pointer;
+}
+
+.form-line {
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid #310b0b14;
+    margin-top: 5rem;
+}
+
+.user-icon {
+    width: 1.7rem;
+    height: 1.7rem;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.just-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+
+
+p {
+    font-size: 1.4rem;
+    color: var(--dark);
+    line-height: 1.5;
+    letter-spacing: .5px;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+}
+
+select {
+    cursor: pointer;
+}
+
+/* By Default CSS style End*/
+
+/* Admin login section start here (Global CSS for all form elements) */
+.form-container {
+    margin-top: 5rem;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.page-title h1 {
+    font-weight: 600;
+    font-size: 5rem;
+}
+
+.page-title h1 span {
+    color: var(--green);
+}
+
+.text-area {
+    width: 100%;
+    height: 10rem;
+    resize: vertical;
+}
+
+.form-box {
+    width: 50rem;
+    margin: 1rem auto;
+    padding: 1rem 2rem 2rem 2rem;
+    border-radius: var(--radius);
+    background: var(--light);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Show error msg when user entered wrong data */
+.err-msg {
+    font-size: 1.3rem;
+    color: var(--red);
+    font-weight: 600;
+}
+
+/* Admin Login Div in form  */
+.form-heading {
+    width: 100%;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.form-box .form-heading .admin-img {
+    width: 3rem;
+    height: 3rem;
+}
+
+.form-box .form-heading h3 {
+    text-transform: capitalize;
+    font-size: 2.5rem;
+    color: var(--gray-dark);
+}
+
+.form-box .form-element {
+    margin: 1.2rem 0;
+}
+
+/* .submit is class for buttons likes (login, sign-up) */
+.form-box .form-element .submit-btn {
+    background: var(--gray-dark);
+    color: var(--light);
+    margin-top: 2rem;
+    transition: all .2s ease-in;
+}
+
+.form-box .form-element .submit-btn:hover {
+    background-color: var(--dark);
+}
+
+
+.form-box .forgot-pass {
+    display: block;
+    float: right;
+    font-size: 13px;
+    color: var(--red);
+    margin: 1rem 0;
+}
+
+.form-box .sign-link {
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.form-box .sign-link span {
+    color: var(--text);
+    font-size: 1.4rem;
+    margin-right: .5rem;
+}
+
+.form-box .sign-link a {
+    font-size: 1.4rem;
+    color: var(--blue);
+}
+
+
+/* Admin login section End here */
+
+/* Add service section start here (siddharth) */
+#add-service .form-box {
+    width: 65rem;
+}
+
+#add-service .heading {
+    font-size: 3rem;
+    color: var(--gray-dark);
+}
+
+.form-input-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 1rem;
+}
+
+#add-service .text-area {
+    height: 6rem;
+}
+
+
+
+::-webkit-file-upload-button {
+    border: none;
+    outline: none;
+    border-radius: var(--radius);
+    padding: 1rem 1.5rem;
+    font-size: 1.5rem;
+    background: var(--orange);
+    color: #fff;
+    cursor: pointer;
+
+}
+
+
+
+/* Add service section End here (siddharth) */
