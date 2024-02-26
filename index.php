@@ -1,9 +1,8 @@
 <?php
 
-require "partials/_dbConnect.php";
-require "partials/_regularExp.php";
+include_once "partials/_regularExp.php";
+include_once "partials/_dbConnect.php";
 
-session_start();
 
 // Contact form validation and data save process start here
 if (isset($_POST['contact_form'])) {
@@ -27,10 +26,9 @@ if (isset($_POST['contact_form'])) {
             $userEmailError = "* Invalid Email Id";
         }
 
-        if ($msg_len < 15)
-            $contactErrorMsg = "* Massage should be 15 characters";
-        else if ($msg_len > 500)
-            $contactErrorMsg = "* Massage should be less that 500 characters";
+        if ($msg_len < 15 || $msg_len > 500)
+            $contactErrorMsg = "* Massage should between 15 and 500 characters";
+
         // Validation End Here
 
         // user table -> user email 
@@ -75,7 +73,6 @@ if (isset($_POST['contact_form'])) {
     }
 }
 // Contact form validation and data save process end here
-$conn->close();
 ?>
 
 
@@ -130,7 +127,7 @@ $conn->close();
             </div>
         </div>
 
-        <div class="service-wrapper">
+        <div class="service-wrapper" id="service-wrap">
             <div class="categories-section">
                 <h2 class="heading">All Categories</h2>
                 <ul>
@@ -146,12 +143,85 @@ $conn->close();
                 </ul>
             </div>
             <div class="service-info">
-                <div class="service-box">
-                    <div class="box-container" id="plumbing">
+                <!-- Plumbing Services Fetching Here -->
+                <div class="service-box" id="plumbing">
+                    <h2 class="ser-heading">Plumbing</h2>
+                    <div class="box-container">
                         <?php
-                        require "partials/_dbConnect.php";
-
                         $sql = "SELECT * FROM services WHERE cate_id = 1";
+                        $result = $conn->query($sql);
+
+                        if ($result) {
+                            // Check if any rows were returned
+                            if ($result->num_rows > 0) {
+                                // Loop through each row
+                                while ($row = $result->fetch_assoc()) {
+                                    echo '
+                                        <a href="#">
+                                            <div class="box shadow">
+                                                <div class="box-body">
+                                                    <a href="#">
+                                                        <img src="' . $row["image_path"] . '" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="box-title">
+                                                    <p>' . $row["name"] . '</p>
+                                                </div>
+                                            </div>
+                                        </a>';
+                                }
+                            }
+                        } else {
+                            // Query execution failed
+                            echo "Error: " . $conn->error;
+                        }
+                        ?>
+
+                    </div>
+                </div>
+
+                <!-- Cleaning Services Fetching Here -->
+                <div class="service-box" id="cleaning">
+                    <h2 class="ser-heading">Cleaning</h2>
+                    <div class="box-container">
+                        <?php
+                        $sql = "SELECT * FROM services WHERE cate_id = 2";
+                        $result = $conn->query($sql);
+
+                        if ($result) {
+                            // Check if any rows were returned
+                            if ($result->num_rows > 0) {
+                                // Loop through each row
+                                while ($row = $result->fetch_assoc()) {
+                                    echo '
+                                        <a href="#">
+                                            <div class="box shadow">
+                                                <div class="box-body">
+                                                    <a href="#">
+                                                        <img src="' . $row["image_path"] . '" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="box-title">
+                                                    <p>' . $row["name"] . '</p>
+                                                </div>
+                                            </div>
+                                        </a>';
+                                }
+                            }
+                        } else {
+                            // Query execution failed
+                            echo "Error: " . $conn->error;
+                        }
+                        ?>
+
+                    </div>
+                </div>
+                <!-- Electrical Services Fetching Here  -->
+                <div class="service-box" id="electrical">
+                    <h2 class="ser-heading">Electrical</h2>
+                    <div class="box-container">
+                        <?php
+                        $sql = "SELECT * FROM services WHERE cate_id = 3";
                         $result = $conn->query($sql);
 
                         if ($result) {

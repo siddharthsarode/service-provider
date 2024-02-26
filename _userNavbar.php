@@ -19,16 +19,16 @@ session_start();
     </nav>
     <div class="login-section">
         <?php if (!isset($_SESSION['userEmail'])) : ?>
-        <a href="./_userLogin.php" class="user-login">
-            <img src="img/default_profile.png" class="icon user-icon" alt="">
-            <span class="login-text">Sign-up / Login</span>
-        </a>
+            <a href="./_userLogin.php" class="user-login">
+                <img src="img/default_profile.png" class="icon user-icon" alt="">
+                <span class="login-text">Sign-up / Login</span>
+            </a>
         <?php else : ?>
-        <a href="#" class="link button account">
-            <img src="img/icons/user.png" class="user-icon" alt="">
-            <span>My Profile</span>
-        </a>
-        <a href="_logout.php" class="button btn-red">Log out</a>
+            <a href="#" class="link button account">
+                <img src="img/icons/user.png" class="user-icon" alt="">
+                <span>My Profile</span>
+            </a>
+            <a href="_logout.php" class="button btn-red">Log out</a>
         <?php endif; ?>
     </div>
 

@@ -67,11 +67,11 @@ body {
 
 
 ::-webkit-scrollbar-thumb {
-    display: none;
-    /* background-color: var(--gray-dark);
+    /* display: none; */
+    background-color: var(--gray-dark);
     border-radius: 1rem;
     border: .5rem solid transparent;
-    background-clip: content-box; */
+    background-clip: content-box;
 }
 
 /* By Default CSS style Start*/
@@ -554,11 +554,15 @@ main .main-container .intro .help-link a:nth-child(2):hover {
     clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
 }
 
+/* Services Section start Here */
+
 #services {
     padding-bottom: 2rem;
     border-bottom: 1px solid rgba(0, 0, 255, 0.115);
     background: var(--body);
 }
+
+
 
 #services .section-heading {
     padding: 2rem 0;
@@ -646,9 +650,10 @@ main .main-container .intro .help-link a:nth-child(2):hover {
 }
 
 #services .service-wrapper .service-info {
+    padding-top: 4rem;
     width: 75%;
-    /* background-color: var(--blue); */
     overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 #services .service-wrapper .service-info::-webkit-scrollbar-track {
@@ -657,6 +662,11 @@ main .main-container .intro .help-link a:nth-child(2):hover {
 
 #services .service-wrapper .service-info .service-box {
     width: 100%;
+}
+
+.service-box .ser-heading {
+    font-size: 2.5rem;
+    color: var(--text);
 }
 
 #services .service-wrapper .service-info .service-box .box-container {
@@ -694,6 +704,7 @@ main .main-container .intro .help-link a:nth-child(2):hover {
     font-size: 1.6rem;
     margin: 2rem 0 0 0;
 }
+
 /* Services Section End Here */
 
 /*  Our Best Worker Section Start Here */

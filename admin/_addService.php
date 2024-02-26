@@ -83,10 +83,16 @@ if (isset($_POST['add_service'])) {
                     <!-- <img src="../img/icons/adminDark.png" alt="Admin-img" class="admin-img"> -->
                     <h2 class="heading">Add Service</h2>
                 </div>
-                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="add-service-form" enctype="multipart/form-data">
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="add-service-form"
+                    autocomplete="off" enctype="multipart/form-data">
                     <div class="form-element">
                         <label class="form-label" for="serviceName">Service Name</label>
-                        <input class="form-input" type="text" name="serviceName" id="serviceName" placeholder="Service Name" value="<?php if (isset($_POST['add_service'])) echo $name; ?>" required />
+                        <input class="form-input" type="text" name="serviceName" id="serviceName"
+                            placeholder="Service Name"
+                            value="<?php if (isset($_POST['add_service'])) {
+                                                                                                                                        if (!empty($userNameError)) echo $name;
+                                                                                                                                    } ?>"
+                            required />
                         <small class="err-msg">
                             <?php echo $userNameError; ?>
                         </small>
@@ -94,7 +100,10 @@ if (isset($_POST['add_service'])) {
 
                     <div class="form-element">
                         <label class="form-label" for="serviceDesc">Description</label>
-                        <textarea class="form-input text-area" type="text" name="desc" id="desc" required><?php if (isset($_POST['add_service'])) echo $desc; ?></textarea>
+                        <textarea class="form-input text-area" type="text" name="desc" id="desc"
+                            required><?php if (isset($_POST['add_service'])) {
+                                                                                                                if (!empty($descError)) echo $desc;
+                                                                                                            } ?></textarea>
                         <small class="err-msg">
                             <?php echo $descError; ?>
                         </small>
@@ -105,7 +114,10 @@ if (isset($_POST['add_service'])) {
 
                         <div class="form-element">
                             <label class="form-label" for="servicePrice">Price</label>
-                            <input class="form-input" type="number" name="servicePrice" id="servicePrice" placeholder="Price in Rs" value="<?php if (isset($_POST['add_service'])) echo $price; ?>" required />
+                            <input class="form-input" type="number" name="servicePrice" id="servicePrice"
+                                placeholder="Price in Rs"
+                                value="<?php if (isset($_POST['add_service'])){if(!empty($priceError)) echo $price;}?>"
+                                required />
                             <small class="err-msg">
                                 <?php echo $priceError; ?>
                             </small>
@@ -152,7 +164,8 @@ if (isset($_POST['add_service'])) {
 
                         <div class="form-element">
                             <label class="form-label" for="serviceImage">Upload Service Image </label>
-                            <input class="input-file" type="file" accept="image/*" name="file" id="serviceImage" placeholder="Service Duration" value="Upload file" required />
+                            <input class="input-file" type="file" accept="image/*" name="file" id="serviceImage"
+                                placeholder="Service Duration" value="Upload file" required />
                         </div>
                     </div>
 
