@@ -21,11 +21,12 @@
     --light: #fff;
     --heading: #3E3232;
     --body: #fafafa;
+    --bg-light: #f1f3f6;
     --radius: .5rem;
     --shadow: box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
 }
 
-.dark-them {
+/* .dark-them {
     --blue: #04193a;
     --purple: #5f09ff;
     --pink: #dd0e76;
@@ -47,7 +48,7 @@
     border: 1px solid black;
     outline: none;
     border-radius: 3px;
-}
+} */
 
 html {
     scroll-behavior: smooth;
@@ -56,9 +57,10 @@ html {
 
 
 body {
+    padding-top: 7rem;
     width: 100%;
     height: 100%;
-    background: var(--body);
+    background: var(--bg-light);
 }
 
 ::-webkit-scrollbar {
@@ -231,9 +233,9 @@ select {
 
 /* Navbar Start Here */
 
-header {
+.header {
     width: 100%;
-    padding: .6rem 4rem !important;
+    padding: .3rem 4rem !important;
     position: fixed;
     top: 0;
     left: 0;
@@ -245,24 +247,24 @@ header {
     z-index: 100;
 }
 
-header .logo-section .my-logo {
+.header .logo-section .my-logo {
     width: 7rem;
     height: 6rem;
 }
 
-header .navbar ul {
+.header .navbar ul {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-header .navbar ul li {
+.header .navbar ul li {
     padding: 0 .5rem;
 }
 
 
 
-header .navbar ul li .navbar-link {
+.header .navbar ul li .navbar-link {
     font-size: 1.6rem;
     font-weight: 500;
     letter-spacing: 1px;
@@ -271,7 +273,7 @@ header .navbar ul li .navbar-link {
     position: relative;
 }
 
-header .navbar ul li .navbar-link::before {
+.header .navbar ul li .navbar-link::before {
     content: "";
     position: absolute;
     top: 110%;
@@ -282,30 +284,30 @@ header .navbar ul li .navbar-link::before {
     transition: all .2s linear;
 }
 
-header .navbar ul li .navbar-link:hover:before {
+.header .navbar ul li .navbar-link:hover:before {
     width: 100%;
 }
 
-header .navbar ul li .navbar-link:hover {
+.header .navbar ul li .navbar-link:hover {
     color: var(--blue);
 }
 
-header .navbar ul li .navbar-link.active-link {
+.header .navbar ul li .navbar-link.active-link {
     color: var(--blue);
 }
 
 /* It used when we added more links */
-header .login-section {
+.header .login-section {
     display: flex;
     align-items: center;
 }
 
-header .login-section .user-login {
+.header .login-section .user-login {
     display: flex;
     align-items: center;
 }
 
-header .login-section .link {
+.header .login-section .link {
     font-size: 1.6rem;
     font-weight: 500;
     letter-spacing: 1px;
@@ -315,18 +317,18 @@ header .login-section .link {
     transition: all .2s ease-in;
 }
 
-header .login-section .link.account {
+.header .login-section .link.account {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
 }
 
-header .login-section .link.account span {
+.header .login-section .link.account span {
     color: var(--blue);
 }
 
-header .login-section .link.account:hover {
+.header .login-section .link.account:hover {
     color: var(--blue);
 }
 
@@ -334,13 +336,13 @@ header .login-section .link.account:hover {
 
 
 
-header .login-section .login-text {
+.header .login-section .login-text {
     font-size: 1.6rem;
     color: var(--heading);
     transition: all .2s ease-in;
 }
 
-header .login-section .login-text:hover {
+.header .login-section .login-text:hover {
     color: var(--blue);
 }
 
@@ -448,7 +450,7 @@ main {
     background-size: cover;
     background-position: center;
     width: 100%;
-    height: 100vh;
+    height: 90vh;
 }
 
 main .main-container {
@@ -912,6 +914,133 @@ main .main-container .intro .help-link a:nth-child(2):hover {
 }
 
 /* Contact Section Start Here (User's query) */
+
+
+/* ==================
+User's Dashboard start here 
+=====================*/
+
+/* We already style this section only change particular link or ... */
+.user-dash.header {
+    padding: .3rem 4rem !important;
+    background: var(--blue);
+
+}
+
+.user-dash.header .navbar ul li .navbar-link {
+    color: var(--light);
+    transition: all .2s linear;
+}
+
+.user-dash.header .navbar ul li .navbar-link::before {
+    border-bottom: 2px solid var(--light);
+}
+
+
+
+.user-dash.header .navbar ul li .navbar-link:hover {
+    color: var(--yellow);
+}
+
+.user-dash.header .navbar ul li .navbar-link.active-link {
+    color: var(--yellow);
+}
+
+.user-dash #user-logout {
+    background: var(--red);
+    color: var(--light);
+}
+
+.user-dash #user-logout:hover {
+    background: transparent;
+    border-color: var(--light);
+    color: var(--light);
+}
+
+
+.user-dash.header .login-section .link.account span {
+    color: var(--light);
+}
+
+/* ==================
+User's Dashboard End here 
+=====================*/
+
+/* ==================
+User's Dashboard -> Categories Navbar start Here
+=====================*/
+
+#cate-navbar {
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    padding: .3rem 1rem;
+    /* padding-top: 2rem; */
+    background-color: var(--light);
+}
+
+#cate-navbar .category-list {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    /* overflow-x: scroll; */
+    scrollbar-width: none;
+}
+
+#cate-navbar .category-list li {
+    width: 20rem;
+    padding: 0 2rem;
+}
+
+#cate-navbar .category-list li .cate-link {
+    text-transform: capitalize;
+    font-size: 1.6rem;
+    padding: .3rem 1rem;
+    color: var(--gray-dark);
+}
+
+#cate-navbar .category-list li .sub-menu {
+    display: none;
+    padding: 1.5rem 0;
+    background: var(--text);
+    /* box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2); */
+
+}
+
+#cate-navbar .category-list li .sub-menu ul li a {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--gray-dark);
+}
+
+#cate-navbar .category-list li:hover .sub-menu {
+    display: block;
+    position: absolute;
+    background: var(--light);
+}
+
+#cate-navbar .category-list li:hover .sub-menu ul {
+    display: block;
+}
+
+#cate-navbar .category-list li:hover .sub-menu ul li {
+    padding: 1rem 0rem 1.5rem 1rem;
+    border-left: .5rem solid transparent;
+    transition: all .2s ease-in-out;
+}
+
+#cate-navbar .category-list li:hover .sub-menu ul li:hover {
+    padding-left: 2rem;
+    border-color: var(--blue);
+}
+
+/* ==================
+User's Dashboard -> Categories Navbar End Here
+=====================*/
 
 
 

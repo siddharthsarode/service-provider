@@ -2,7 +2,7 @@
 <?php
 session_start();
 ?>
-<header class="pad-x">
+<header class="pad-x header">
     <div class="logo-section">
         <a href="index.php">
             <img src="img/original_logo.png" alt="mayIHelpYou" class="my-logo">
@@ -24,7 +24,7 @@ session_start();
                 <span class="login-text">Sign-up / Login</span>
             </a>
         <?php else : ?>
-            <a href="#" class="link button account">
+            <a href="_userDashboard.php" class="link button account">
                 <img src="img/icons/user.png" class="user-icon" alt="">
                 <span>My Profile</span>
             </a>

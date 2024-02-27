@@ -2,6 +2,7 @@
 require "partials/_dbConnect.php";
 
 session_start();
+error_reporting(0);
 
 if (isset($_SESSION['userEmail'])) {
     header("location: index.php");
@@ -66,13 +67,11 @@ $conn->close();
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                 <div class="form-element">
                     <label class="form-label" for="email">Email</label>
-                    <input class="form-input" type="email" name="email" id="email"
-                        value="<?php if (isset($_POST['login'])) echo $user_email; ?>" placeholder="E-mail" required />
+                    <input class="form-input" type="email" name="email" id="email" value="<?php if (isset($_POST['login'])) echo $user_email; ?>" placeholder="E-mail" required />
                 </div>
                 <div class="form-element">
                     <label class="form-label" for="password">Password</label>
-                    <input class="form-input" type="password" name="password" id="password" placeholder="Password"
-                        value="<?php if (isset($_POST['login'])) echo ""; ?>" required />
+                    <input class="form-input" type="password" name="password" id="password" placeholder="Password" value="<?php if (isset($_POST['login'])) echo ""; ?>" required />
                 </div>
                 <div class="form-element">
                     <input class="form-input button submit-btn" type="submit" value="Login" name="login" id="login">
