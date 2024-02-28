@@ -51,43 +51,50 @@ include_once "partials/_dbConnect.php";
     <!-- Categories navbar bar Start Here -->
     <nav class="navbar" id="cate-navbar">
         <ul class="category-list">
+            <!-- Fetching categories into database and display it on user's dashboard -->
             <?php
             $fetch_cate = "SELECT cate_id, cate_name FROM categories";
             $result = $conn->query($fetch_cate);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    echo ' <li><a href="#" class="cate-link ">' . $row['cate_name'] . '</a>
-                <div class="sub-menu">
-                    <ul class="service-list">
-                        <li><a href="#">Pipe repair</a></li>
-                        <li><a href="#">Wiring repair</a></li>
-                        <li><a href="#">Car repair</a></li>
-                        <li><a href="#">Pen repair</a></li>
-                        <li><a href="#">Hello repair</a></li>
-                    </ul>
-                </div>
-            </li>';
+                    echo ' <li><a href="#" class="cate-link ">' . $row['cate_name'] . '</a> ';
+
+                    // Fetching services category wise
+                    $fetch_service = "SELECT service_id, name FROM services WHERE cate_id = {$row['cate_id']}";
+                    $res = $conn->query($fetch_service);
+                    echo '<div class="sub-menu">
+                    <ul class="service-list">';
+                    if ($res) {
+                        while ($arr_service = $res->fetch_assoc()) {
+                            echo '<li><a href="#">' . $arr_service["name"] . '</a></li>';
+                        }
+                        echo '</ul>
+                            </div>
+                        </li>';
+                    }
                 }
             } else {
-                echo "No";
+                echo "<script>alert('* Poor Network'); </script>";
             }
             ?>
-
-            <!-- <li><a href="#" class="cate-link ">Cleaning</a></li>
-            <li><a href="#" class="cate-link ">Electrical</a></li>
-            <li><a href="#" class="cate-link ">Carpentry</a></li>
-            <li><a href="#" class="cate-link ">Services</a></li>
-            <li><a href="#" class="cate-link ">Home</a></li>
-            <li><a href="#" class="cate-link ">About</a></li>
-            <li><a href="#" class="cate-link ">Contact</a></li> -->
-
         </ul>
     </nav>
     <!-- Categories navbar bar End Here -->
 
-    <div class="user-container">
+    <!-- User's Dashboard start here -->
+    <div class="user-dashboard pad-x" id="dashboard">
+        <div class="user-sidebar">
+            <div class="user-operation">
+                <div class="user-profile">
+                    <img src="img/profile-pic.png" alt="Profile" class="profile">
+                </div>
+            </div>
+        </div>
+        <div class="user-content">
+            <h1>content</h1>
+        </div>
     </div>
-
+    <!-- User's Dashboard End here -->
     <script src="js/app.js"></script>
 </body>
 
