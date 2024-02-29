@@ -34,16 +34,16 @@ include_once "partials/_dbConnect.php";
         </nav>
         <div class="login-section">
             <?php if (!isset($_SESSION['userEmail'])) : ?>
-            <a href="./_userLogin.php" class="user-login">
-                <img src="img/default_profile.png" class="icon user-icon" alt="">
-                <span class="login-text">Sign-up / Login</span>
-            </a>
+                <a href="./_userLogin.php" class="user-login">
+                    <img src="img/default_profile.png" class="icon user-icon" alt="">
+                    <span class="login-text">Sign-up / Login</span>
+                </a>
             <?php else : ?>
-            <a href="_userDashboard.php" class="link button account">
-                <img src="img/icons/user.png" class="user-icon" alt="">
-                <span>My Profile</span>
-            </a>
-            <a href="_logout.php" class="button" id="user-logout">Log out</a>
+                <a href="_userDashboard.php" class="link button account">
+                    <img src="img/icons/user.png" class="user-icon" alt="">
+                    <span>My Profile</span>
+                </a>
+                <a href="_logout.php" class="button" id="user-logout">Log out</a>
             <?php endif; ?>
         </div>
     </header>
@@ -85,17 +85,73 @@ include_once "partials/_dbConnect.php";
     <div class="user-dashboard pad-x" id="dashboard">
         <div class="user-sidebar">
             <div class="user-operation">
-                <div class="user-profile">
+                <div class="user-profile op-padding shadow">
                     <img src="img/profile-pic.png" alt="Profile" class="profile">
+                    <div class="name-info">
+                        <div class="hello">Hello,</div>
+                        <div class="user-name">Siddharth Sarode</div>
+                    </div>
+                </div>
+                <div class="user-links-container op-padding shadow">
+                    <div class="order">
+                        <div class="dash-box">
+                            <img src="img/icons/order-icon.png" alt="order-icon" class="dashboard-icon">
+                            <a href="#">Orders</a>
+                        </div>
+                    </div>
+                    <div class="user-account">
+                        <div>
+                            <div class="dash-box">
+                                <img src="img/icons/user-dash-icon.png" alt="user-icon" class="dashboard-icon">
+                                <div>Account Manage</div>
+                            </div>
+                            <div class="dash-links">
+                                <a href="#">Profile information</a>
+                                <a href="#">Manage Addresses</a>
+                                <a href="#">PAN Card information</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="payment">
+                        <div class="dash-box">
+                            <img src="img/icons/payment-icon.png" alt="user-icon" class="dashboard-icon">
+                            <div>Payments</div>
+                        </div>
+                        <div class="dash-links">
+                            <a href="#">Gift Cards</a>
+                            <a href="#">Saved UPI</a>
+                            <a href="#">Saved Cards</a>
+                        </div>
+                    </div>
+
+                    <div class="stuff">
+                        <div class="dash-box">
+                            <img src="img/icons/my-stuff-icon.png" alt="user-icon" class="dashboard-icon">
+                            <div>Payments</div>
+                        </div>
+                        <div class="dash-links">
+                            <a href="#">My Coupons</a>
+                            <a href="#">My Reviews & rating UPI</a>
+                            <a href="#">All Notification</a>
+                            <a href="#">My Wishlist</a>
+                        </div>
+                    </div>
+
+                    <div class="logout">
+                        <div class="dash-box">
+                            <img src="img/icons/power-off-icon.png" alt="user-icon" class="dashboard-icon">
+                            <div>Logout</div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="user-content">
+                <h1>content</h1>
+            </div>
         </div>
-        <div class="user-content">
-            <h1>content</h1>
-        </div>
-    </div>
-    <!-- User's Dashboard End here -->
-    <script src="js/app.js"></script>
+        <!-- User's Dashboard End here -->
+        <script src="js/app.js"></script>
 </body>
 
 </html>
