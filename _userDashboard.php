@@ -34,16 +34,16 @@ include_once "partials/_dbConnect.php";
         </nav>
         <div class="login-section">
             <?php if (!isset($_SESSION['userEmail'])) : ?>
-                <a href="./_userLogin.php" class="user-login">
-                    <img src="img/default_profile.png" class="icon user-icon" alt="">
-                    <span class="login-text">Sign-up / Login</span>
-                </a>
+            <a href="./_userLogin.php" class="user-login">
+                <img src="img/default_profile.png" class="icon user-icon" alt="">
+                <span class="login-text">Sign-up / Login</span>
+            </a>
             <?php else : ?>
-                <a href="_userDashboard.php" class="link button account">
-                    <img src="img/icons/user.png" class="user-icon" alt="">
-                    <span>My Profile</span>
-                </a>
-                <a href="_logout.php" class="button" id="user-logout">Log out</a>
+            <a href="_userDashboard.php" class="link button account">
+                <img src="img/icons/user.png" class="user-icon" alt="">
+                <span>My Profile</span>
+            </a>
+            <!-- <a href="_logout.php" class="button" id="user-logout">Log out</a> -->
             <?php endif; ?>
         </div>
     </header>
@@ -93,13 +93,13 @@ include_once "partials/_dbConnect.php";
                     </div>
                 </div>
                 <div class="user-links-container op-padding shadow">
-                    <div class="order">
+                    <div class="order lg-pad-b dash-info">
                         <div class="dash-box">
                             <img src="img/icons/order-icon.png" alt="order-icon" class="dashboard-icon">
-                            <a href="#">Orders</a>
+                            <div> <a href="#">My Orders</a></div>
                         </div>
                     </div>
-                    <div class="user-account">
+                    <div class="user-account lg-pad-b dash-info">
                         <div>
                             <div class="dash-box">
                                 <img src="img/icons/user-dash-icon.png" alt="user-icon" class="dashboard-icon">
@@ -113,7 +113,7 @@ include_once "partials/_dbConnect.php";
                         </div>
                     </div>
 
-                    <div class="payment">
+                    <div class="payment lg-pad-b dash-info">
                         <div class="dash-box">
                             <img src="img/icons/payment-icon.png" alt="user-icon" class="dashboard-icon">
                             <div>Payments</div>
@@ -125,10 +125,10 @@ include_once "partials/_dbConnect.php";
                         </div>
                     </div>
 
-                    <div class="stuff">
+                    <div class="stuff lg-pad-b dash-info">
                         <div class="dash-box">
                             <img src="img/icons/my-stuff-icon.png" alt="user-icon" class="dashboard-icon">
-                            <div>Payments</div>
+                            <div>My Stuff</div>
                         </div>
                         <div class="dash-links">
                             <a href="#">My Coupons</a>
@@ -138,20 +138,84 @@ include_once "partials/_dbConnect.php";
                         </div>
                     </div>
 
-                    <div class="logout">
+                    <div class="logout lg-pad-b dash-info">
                         <div class="dash-box">
                             <img src="img/icons/power-off-icon.png" alt="user-icon" class="dashboard-icon">
-                            <div>Logout</div>
+                            <div><a href="_logout.php" class="dash-logout">Logout</a></div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="user-content">
-                <h1>content</h1>
+        </div>
+        <div class="user-content">
+            <div class="user-container shadow op-padding">
+                <div class="profile-info">
+                    <div class="info-box lg-pad-b">
+                        <div class="top-section">
+                            <h2 class="heading">Personal Information</h2>
+                            <span class="edit-btn">Edit</span>
+                        </div>
+                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="dash-form">
+                            <div class="dash-form-group">
+                                <div class="form-element">
+                                    <input class="form-input" type="text" name="user-name" id="user-name"
+                                        placeholder="First Name Last Name" required />
+                                </div>
+                                <input type="submit" name="save_name" class="button save-btn" value="SAVE">
+                            </div>
+                            <div class="form-element">
+                                <label class="form-label" for="user-name">Your Gender</label>
+                                <div class="radio-container">
+                                    <div class="radio-div">
+                                        <input type="radio" name="g" id="male" class="radio-btn" checked> <label
+                                            for="male" class="gender-label">Male</label>
+                                    </div>
+                                    <div class="radio-div">
+                                        <input type="radio" name="g" id="female" class="radio-btn"> <label for="female"
+                                            class="gender-label">Female</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Edit Email -->
+                    <div class="info-box lg-pad-b" id="email-address">
+                        <div class="top-section">
+                            <h2 class="heading">Email Address</h2>
+                            <span class="edit-btn">Edit</span>
+                        </div>
+                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="dash-form">
+                            <div class="dash-form-group">
+                                <div class="form-element">
+                                    <input class="form-input" type="email" name="user-email" id="user-email"
+                                        placeholder="Email Address" required />
+                                </div>
+                                <input type="submit" name="save_email" class="button save-btn" value="SAVE">
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Edit Mobile Number -->
+                    <div class="info-box lg-pad-b" id="mobile-number">
+                        <div class="top-section">
+                            <h2 class="heading">Mobile Number</h2>
+                            <span class="edit-btn">Edit</span>
+                        </div>
+                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="dash-form">
+                            <div class="dash-form-group">
+                                <div class="form-element">
+                                    <input class="form-input" type="number" name="user-mobile" id="user-mobile"
+                                        placeholder="Mobile Number" required />
+                                </div>
+                                <input type="submit" name="save_number" class="button save-btn" value="SAVE">
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-        <!-- User's Dashboard End here -->
-        <script src="js/app.js"></script>
+    </div>
+    <!-- User's Dashboard End here -->
+    <script src="js/app.js"></script>
 </body>
 
 </html>
