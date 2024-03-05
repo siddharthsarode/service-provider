@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once "partials/_dbConnect.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -74,12 +75,14 @@ include_once "partials/_dbConnect.php";
                     }
                 }
             } else {
-                echo "<script>alert('* Poor Network'); </script>";
+                echo "<script>alert('* Poor Network'); </>";
             }
             ?>
         </ul>
     </nav>
     <!-- Categories navbar bar End Here -->
+
+
 
     <!-- User's Dashboard start here -->
     <div class="user-dashboard pad-x" id="dashboard">
@@ -147,75 +150,32 @@ include_once "partials/_dbConnect.php";
                 </div>
             </div>
         </div>
+
+        <?php
+        // Fetch user data
+        $sql_query = "SELECT user_id, name, email, mobile_no, city FROM user WHERE email = ?";
+
+        $sql = $conn->prepare($sql_query);
+
+        $user_email = $_SESSION['userEmail'];
+
+        $sql->bind_param("s", $user_email);
+        $sql->execute();
+
+        $result = $sql->get_result();
+        if ($result->num_rows == 1) {
+            $row = $result->fetch_assoc();
+        }
+        ?>
         <div class="user-content">
             <div class="user-container shadow op-padding">
-                <div class="profile-info">
-                    <div class="info-box lg-pad-b">
-                        <div class="top-section">
-                            <h2 class="heading">Personal Information</h2>
-                            <span class="edit-btn">Edit</span>
-                        </div>
-                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="dash-form">
-                            <div class="dash-form-group">
-                                <div class="form-element">
-                                    <input class="form-input" type="text" name="user-name" id="user-name"
-                                        placeholder="First Name Last Name" required />
-                                </div>
-                                <input type="submit" name="save_name" class="button save-btn" value="SAVE">
-                            </div>
-                            <div class="form-element">
-                                <label class="form-label" for="user-name">Your Gender</label>
-                                <div class="radio-container">
-                                    <div class="radio-div">
-                                        <input type="radio" name="g" id="male" class="radio-btn" checked> <label
-                                            for="male" class="gender-label">Male</label>
-                                    </div>
-                                    <div class="radio-div">
-                                        <input type="radio" name="g" id="female" class="radio-btn"> <label for="female"
-                                            class="gender-label">Female</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- Edit Email -->
-                    <div class="info-box lg-pad-b" id="email-address">
-                        <div class="top-section">
-                            <h2 class="heading">Email Address</h2>
-                            <span class="edit-btn">Edit</span>
-                        </div>
-                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="dash-form">
-                            <div class="dash-form-group">
-                                <div class="form-element">
-                                    <input class="form-input" type="email" name="user-email" id="user-email"
-                                        placeholder="Email Address" required />
-                                </div>
-                                <input type="submit" name="save_email" class="button save-btn" value="SAVE">
-                            </div>
-                        </form>
-                    </div>
-                    <!-- Edit Mobile Number -->
-                    <div class="info-box lg-pad-b" id="mobile-number">
-                        <div class="top-section">
-                            <h2 class="heading">Mobile Number</h2>
-                            <span class="edit-btn">Edit</span>
-                        </div>
-                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="dash-form">
-                            <div class="dash-form-group">
-                                <div class="form-element">
-                                    <input class="form-input" type="number" name="user-mobile" id="user-mobile"
-                                        placeholder="Mobile Number" required />
-                                </div>
-                                <input type="submit" name="save_number" class="button save-btn" value="SAVE">
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                <?php include_once "userDashboard/_manageProfile.php"; ?>
             </div>
         </div>
     </div>
     <!-- User's Dashboard End here -->
     <script src="js/app.js"></script>
+    <script src="js/userDashboard.js"></script>
 </body>
 
 </html>

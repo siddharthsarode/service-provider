@@ -1216,6 +1216,18 @@ User's Dashboard Start Here
     letter-spacing: .3px;
     color: var(--blue);
     cursor: pointer;
+    user-select: none;
+}
+
+/* cursor changing on input when edit btn clicked Javascript dynamic class = input-display*/
+.user-container .profile-info .info-box .dash-form input {
+    cursor: no-drop;
+}
+
+/* Javascript dynamic class added */
+.user-container .profile-info .info-box .dash-form.input-display input {
+    pointer-events: painted;
+    cursor: text;
 }
 
 .user-container .profile-info .info-box .dash-form .dash-form-group {
@@ -1226,9 +1238,15 @@ User's Dashboard Start Here
 }
 
 .user-container .profile-info .info-box .dash-form .dash-form-group .save-btn {
+    display: none;
     padding: 1.3rem 2rem;
     background: var(--blue);
     color: #fff;
+}
+
+/* Javascript dynamic class added */
+.user-container .profile-info .info-box .dash-form .dash-form-group .save-btn.btn-active {
+    display: block;
 }
 
 .user-container .profile-info .info-box .dash-form .form-element {
@@ -1236,6 +1254,7 @@ User's Dashboard Start Here
 }
 
 .user-container .profile-info .info-box .dash-form .form-element .form-input {
+    /* text-transform: capitalize; */
     padding: 1.5rem 1rem;
 }
 
