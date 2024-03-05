@@ -1130,6 +1130,7 @@ User's Dashboard Start Here
     font-weight: 600;
     color: var(--dark);
     letter-spacing: .5px;
+    text-transform: capitalize;
 }
 
 .user-sidebar .user-links-container {

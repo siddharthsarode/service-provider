@@ -64,7 +64,7 @@ $conn->close();
         </div>
         <div class="form-box">
             <h3>Login</h3>
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" autocomplete="off">
                 <div class="form-element">
                     <label class="form-label" for="email">Email</label>
                     <input class="form-input" type="email" name="email" id="email" value="<?php if (isset($_POST['login'])) echo $user_email; ?>" placeholder="E-mail" required />

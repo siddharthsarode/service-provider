@@ -83,7 +83,22 @@ include_once "partials/_dbConnect.php";
     <!-- Categories navbar bar End Here -->
 
 
+    <?php
+    // Fetch user data
+    $sql_query = "SELECT user_id, name, email, mobile_no, city FROM user WHERE email = ?";
 
+    $sql = $conn->prepare($sql_query);
+
+    $user_email = $_SESSION['userEmail'];
+
+    $sql->bind_param("s", $user_email);
+    $sql->execute();
+
+    $result = $sql->get_result();
+    if ($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+    }
+    ?>
     <!-- User's Dashboard start here -->
     <div class="user-dashboard pad-x" id="dashboard">
         <div class="user-sidebar">
@@ -92,7 +107,7 @@ include_once "partials/_dbConnect.php";
                     <img src="img/profile-pic.png" alt="Profile" class="profile">
                     <div class="name-info">
                         <div class="hello">Hello,</div>
-                        <div class="user-name">Siddharth Sarode</div>
+                        <div class="user-name"><?php if (isset($row['name'])) echo $row['name']; ?></div>
                     </div>
                 </div>
                 <div class="user-links-container op-padding shadow">
@@ -151,28 +166,15 @@ include_once "partials/_dbConnect.php";
             </div>
         </div>
 
-        <?php
-        // Fetch user data
-        $sql_query = "SELECT user_id, name, email, mobile_no, city FROM user WHERE email = ?";
 
-        $sql = $conn->prepare($sql_query);
-
-        $user_email = $_SESSION['userEmail'];
-
-        $sql->bind_param("s", $user_email);
-        $sql->execute();
-
-        $result = $sql->get_result();
-        if ($result->num_rows == 1) {
-            $row = $result->fetch_assoc();
-        }
-        ?>
         <div class="user-content">
             <div class="user-container shadow op-padding">
                 <?php include_once "userDashboard/_manageProfile.php"; ?>
             </div>
         </div>
     </div>
+
+    <?php include_once "_footer.php"; ?>
     <!-- User's Dashboard End here -->
     <script src="js/app.js"></script>
     <script src="js/userDashboard.js"></script>

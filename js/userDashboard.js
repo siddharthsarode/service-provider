@@ -1,5 +1,7 @@
-const editBtn = document.querySelectorAll('.edit-btn');
 
+// User Profile Editing functionality Added 
+
+const editBtn = document.querySelectorAll('.edit-btn');
 editBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
         const form = btn.parentElement.nextElementSibling;

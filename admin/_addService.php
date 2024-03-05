@@ -1,6 +1,18 @@
 <?php
+session_start();
 require "../partials/_dbConnect.php";
 require "../partials/_regularExp.php";
+
+
+if (!isset($_SESSION['adminEmail'])) {
+    echo "<script>alert('! Please Login First');
+    location.href = '_adminLogin.php';
+     </script>";
+    // header("location: _adminLogin.php");
+    exit;
+}
+
+// $admin_id = $_SESSION['admin_id'];
 
 if (isset($_POST['add_service'])) {
     $name = trim($_POST['serviceName']);
@@ -11,6 +23,7 @@ if (isset($_POST['add_service'])) {
     $cate_id = trim($_POST['cate_id']);
     $img_name = $_FILES['file']['name'];
     $path = "img/services/" . $img_name;
+
 
 
 
@@ -32,14 +45,14 @@ if (isset($_POST['add_service'])) {
 
     if (empty($userNameError) && empty($priceError) && empty($descError) && empty($durationError)) {
 
-        $sql_add = "INSERT INTO `services` (`service_id`,`name`, `description`, `price`, `avg_duration`, `availability`, `created_at`, `image_path`, `cate_id`) 
-        VALUES (null,'$name', '$desc', '$price', '$duration', 'yes', current_timestamp(), '$path', '$cate_id')";
+        $sql_add = "INSERT INTO `services` (`service_id`,`name`, `description`, `price`, `avg_duration`, `availability`, `created_at`, `image_path`, `cate_id`, `admin_id`) 
+        VALUES (null,'$name', '$desc', '$price', '$duration', 'yes', current_timestamp(), '$path', '$cate_id', '$admin_id')";
 
         $result = $conn->query($sql_add);
         if ($result) {
             // File handling code (move_uploaded_file) should be inside this block
             if ($_FILES['file']['error'] !== UPLOAD_ERR_OK) {
-                echo "<script>alert('Image cannot be uploaded')</script>";
+                echo "<script>alert('Image cannot be uploaded')</>";
             } else {
                 $f_name = $_FILES['file']['name'];
                 $f_temp_name = $_FILES['file']['tmp_name'];
