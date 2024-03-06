@@ -121,8 +121,7 @@ if (isset($_POST['contact_form'])) {
         <div class="search-box">
             <h2 class="heading center">Choice a service to get started.</h2>
             <div class="form-element">
-                <input type="search" name="search" id="search-service" class="form-input"
-                    placeholder="Search for a service (e.g 'Cleaning')">
+                <input type="search" name="search" id="search-service" class="form-input" placeholder="Search for a service (e.g 'Cleaning')">
                 <button type="button" class="btn search-btn">Search</button>
             </div>
         </div>
@@ -157,10 +156,9 @@ if (isset($_POST['contact_form'])) {
                                 // Loop through each row
                                 while ($row = $result->fetch_assoc()) {
                                     echo '
-                                        <a href="#">
                                             <div class="box shadow">
                                                 <div class="box-body">
-                                                    <a href="#">
+                                                    <a href="_serviceOrder.php?sid=' . $row["service_id"] . '">
                                                         <img src="' . $row["image_path"] . '" alt="">
                                                     </a>
                                                 </div>
@@ -168,7 +166,7 @@ if (isset($_POST['contact_form'])) {
                                                     <p>' . $row["name"] . '</p>
                                                 </div>
                                             </div>
-                                        </a>';
+                                        ';
                                 }
                             }
                         } else {
@@ -194,10 +192,9 @@ if (isset($_POST['contact_form'])) {
                                 // Loop through each row
                                 while ($row = $result->fetch_assoc()) {
                                     echo '
-                                        <a href="#">
                                             <div class="box shadow">
                                                 <div class="box-body">
-                                                    <a href="#">
+                                                    <a href="_serviceOrder.php?sid=' . $row["service_id"] . '">
                                                         <img src="' . $row["image_path"] . '" alt="">
                                                     </a>
                                                 </div>
@@ -205,7 +202,7 @@ if (isset($_POST['contact_form'])) {
                                                     <p>' . $row["name"] . '</p>
                                                 </div>
                                             </div>
-                                        </a>';
+                                        ';
                                 }
                             }
                         } else {
@@ -230,10 +227,9 @@ if (isset($_POST['contact_form'])) {
                                 // Loop through each row
                                 while ($row = $result->fetch_assoc()) {
                                     echo '
-                                        <a href="#">
                                             <div class="box shadow">
                                                 <div class="box-body">
-                                                    <a href="#">
+                                                    <a href="_serviceOrder.php?sid=' . $row["service_id"] . '">
                                                         <img src="' . $row["image_path"] . '" alt="">
                                                     </a>
                                                 </div>
@@ -241,7 +237,7 @@ if (isset($_POST['contact_form'])) {
                                                     <p>' . $row["name"] . '</p>
                                                 </div>
                                             </div>
-                                        </a>';
+                                        ';
                                 }
                             }
                         } else {
@@ -344,28 +340,22 @@ if (isset($_POST['contact_form'])) {
                         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                             <div class="form-element">
                                 <label class="form-label" for="name">Full Name</label>
-                                <input class="form-input" type="text" name="con-user-name" id="email" placeholder="Name"
-                                    value="<?php if (isset($_POST['contact_form'])) echo $con_username; ?>" required />
+                                <input class="form-input" type="text" name="con-user-name" id="email" placeholder="Name" value="<?php if (isset($_POST['contact_form'])) echo $con_username; ?>" required />
                                 <small class="err-msg"> <?php echo $userNameError; ?></small>
                             </div>
                             <div class="form-element">
                                 <label class="form-label" for="email">Email</label>
-                                <input class="form-input" type="email" name="con-user-email" id="email"
-                                    placeholder="E-mail"
-                                    value="<?php if (isset($_POST['contact_form'])) echo $con_user_email; ?>"
-                                    required />
+                                <input class="form-input" type="email" name="con-user-email" id="email" placeholder="E-mail" value="<?php if (isset($_POST['contact_form'])) echo $con_user_email; ?>" required />
                                 <small class="err-msg"> <?php echo $userEmailError; ?></small>
                             </div>
 
                             <div class="form-element">
                                 <label class="form-label" for="phone">Massage</label>
-                                <textarea name="msg" id="msg" class="form-input text-area"
-                                    placeholder="Describe your thoughts..." required></textarea>
+                                <textarea name="msg" id="msg" class="form-input text-area" placeholder="Describe your thoughts..." required></textarea>
                                 <small class="err-msg"> <?php echo $contactErrorMsg; ?></small>
                             </div>
                             <div class="form-element">
-                                <input class="form-input button" type="submit" value="Send" name="contact_form"
-                                    id="contact-form">
+                                <input class="form-input button" type="submit" value="Send" name="contact_form" id="contact-form">
                             </div>
                         </form>
 

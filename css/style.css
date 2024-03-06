@@ -1268,6 +1268,124 @@ User's Dashboard Start Here
 User's Dashboard End Here
 =====================*/
 
+/* ==================
+Service Order page Start  Here (_serviceOrder.php)
+=====================*/
+
+.service-order-container {
+    margin: 1rem 0;
+    background: var(--bg-light);
+}
+
+.order-service {
+    height: 50rem;
+}
+
+.order-service .order-wrapper {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 40% auto;
+    background: var(--light);
+}
+
+.order-service .order-wrapper .service-img {
+    padding-top: 1rem;
+    width: 100%;
+    height: 70%;
+}
+
+.order-service .order-wrapper .service-img img {
+    border-radius: var(--radius);
+    height: 100%;
+}
+
+.order-btn-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.order-btn-container .booking-btn {
+    display: inline-block;
+    width: 45%;
+    text-align: center;
+    color: var(--light);
+    background: var(--blue);
+}
+
+.order-btn-container .booking-btn:hover {
+    background: var(--purple);
+}
+
+.order-btn-container .other-btn {
+    display: inline-block;
+    width: 45%;
+    text-align: center;
+    color: var(--light);
+    background: var(--orange);
+}
+
+.order-btn-container .other-btn:hover {
+    background: orange;
+}
+
+.order-service .order-wrapper .order-service-info {
+    background: var(--light);
+    padding: 1rem 2rem;
+}
+
+.order-service .order-wrapper .order-service-info .about-service {
+    width: 80%;
+}
+
+.order-service .order-wrapper .order-service-info .about-service h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: .7rem;
+}
+
+.order-service .order-wrapper .order-service-info .about-service .desc {
+    margin-bottom: 2rem;
+}
+
+.order-service .order-wrapper .order-service-info .about-service .service-desc {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: var(--dark);
+    letter-spacing: .4px;
+}
+
+.order-service .order-wrapper .order-service-info .about-service .service-tags {
+    margin-bottom: 4rem;
+}
+
+.order-service .order-wrapper .order-service-info .about-service .tag {
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: .3rem 0;
+    color: var(--dark);
+    letter-spacing: .4px;
+}
+
+.order-service .order-wrapper .order-service-info .about-service .tag span {
+    color: var(--text);
+    font-weight: 500;
+    letter-spacing: .4px;
+}
+
+
+
+
+/* ==================
+Service Order page End  Here (_serviceOrder.php)
+=====================*/
+
+
+
+
 
 
 
@@ -1282,6 +1400,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     background: var(--dark);
+    z-index: 999;
 }
 
 footer .logo-text h2 {
