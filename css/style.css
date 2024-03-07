@@ -1335,6 +1335,8 @@ Service Order page Start  Here (_serviceOrder.php)
 .order-service .order-wrapper .order-service-info {
     background: var(--light);
     padding: 1rem 2rem;
+    overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 .order-service .order-wrapper .order-service-info .about-service {
@@ -1363,8 +1365,8 @@ Service Order page Start  Here (_serviceOrder.php)
 }
 
 .order-service .order-wrapper .order-service-info .about-service .tag {
-    font-size: 1.5rem;
-    font-weight: 500;
+    font-size: 1.4rem;
+    font-weight: 600;
     padding: .3rem 0;
     color: var(--dark);
     letter-spacing: .4px;
@@ -1376,8 +1378,63 @@ Service Order page Start  Here (_serviceOrder.php)
     letter-spacing: .4px;
 }
 
+.question-container {
+    width: 100%;
+}
 
+.question-container .que-wrapper {
+    padding: .5rem 0 .5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid rgba(0, 0, 0, 0.2); */
+}
 
+.question-container .que-wrapper p {
+    font-size: 1.6rem;
+}
+
+.question-container .que-wrapper .post-btn {
+    padding: .8rem 1.5rem;
+    font-size: 1.5rem;
+    color: var(--light);
+    background: var(--blue);
+}
+
+.question-container .que-form {
+    display: none;
+    width: 80%;
+}
+
+.question-container .que-form.show-form {
+    display: block;
+}
+
+.question-container .que-form .heading {
+    font-weight: 500;
+    font-size: 2.5rem;
+    padding-bottom: .5rem;
+
+}
+
+.question-container .que-form form .text-area {
+    padding: 2rem 0rem 1rem 2rem;
+    border: transparent;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.question-container .que-form form .text-area:focus {
+    box-shadow: none;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.question-container .que-form form .submit-btn {
+    width: 40%;
+    color: var(--light);
+    background: var(--orange);
+}
 
 /* ==================
 Service Order page End  Here (_serviceOrder.php)
