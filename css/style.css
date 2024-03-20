@@ -63,6 +63,30 @@ body {
     background: var(--bg-light);
 }
 
+p {
+    font-size: 1.4rem;
+    color: var(--dark);
+    line-height: 1.5;
+    letter-spacing: .5px;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+}
+
+select {
+    cursor: pointer;
+}
+
 ::-webkit-scrollbar {
     width: 1.5rem;
 }
@@ -140,6 +164,12 @@ body {
 
 .form-input:focus {
     box-shadow: 0px 0px 7px #0d6dfdb9;
+}
+
+.form-input-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 1rem;
 }
 
 
@@ -243,29 +273,6 @@ body {
 
 
 
-p {
-    font-size: 1.4rem;
-    color: var(--dark);
-    line-height: 1.5;
-    letter-spacing: .5px;
-}
-
-ul,
-li {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-}
-
-img {
-    width: 100%;
-}
-
-select {
-    cursor: pointer;
-}
 
 /* By Default CSS style End*/
 
@@ -1441,7 +1448,40 @@ Service Order page End  Here (_serviceOrder.php)
 =====================*/
 
 
+/* --------- Payment Page start ---------  */
+#payment {
+    padding: 0rem 4rem;
+}
 
+
+
+#payment .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 40%;
+    gap: 2rem;
+}
+
+#payment .grid-container .payment-section {
+    background: var(--light);
+    padding: 1rem 2rem;
+}
+
+#payment .grid-container .payment-section form h2 {
+    font-size: 1.8rem;
+    padding: 1rem 0;
+}
+
+#payment .grid-container .payment-section form #booking-btn {
+    margin-top: 2rem;
+    color: var(--light);
+    background: var(--orange);
+}
+
+/* #payment .grid-container .payment-form {
+    margin: 0 auto;
+} */
+
+/* --------- Payment Page End ---------  */
 
 
 
@@ -1491,3 +1531,37 @@ footer .footer-link a span {
 } */
 
 /* Footer section End here */
+
+
+/* Responsive Code */
+.container {
+    width: 100%;
+    padding-right: 5rem;
+    padding-left: 5rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 730px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 820px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}

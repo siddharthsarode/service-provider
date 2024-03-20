@@ -50,7 +50,7 @@ include_once "partials/_dbConnect.php";
                     <img src="<?php if (isset($_GET['sid'])) echo $ser_row['image_path']; ?>" alt="PipeInstallation">
                     <div class="order-btn-container">
                         <a href="#" class="other-btn button">Other Service</a>
-                        <a href="#" class="booking-btn button">Book Now</a>
+                        <a href="_paymentPage.php?sid<?php echo $sid; ?>" class="booking-btn button">Book Now</a>
                     </div>
                 </div>
                 <div class="order-service-info">

@@ -121,7 +121,8 @@ if (isset($_POST['contact_form'])) {
         <div class="search-box">
             <h2 class="heading center">Choice a service to get started.</h2>
             <div class="form-element">
-                <input type="search" name="search" id="search-service" class="form-input" placeholder="Search for a service (e.g 'Cleaning')">
+                <input type="search" name="search" id="search-service" class="form-input"
+                    placeholder="Search for a service (e.g 'Cleaning')">
                 <button type="button" class="btn search-btn">Search</button>
             </div>
         </div>
@@ -183,7 +184,7 @@ if (isset($_POST['contact_form'])) {
                     <h2 class="ser-heading">Cleaning</h2>
                     <div class="box-container">
                         <?php
-                        $sql = "SELECT * FROM services WHERE cate_id = 2";
+                        $sql = "SELECT * FROM services WHERE cate_id = 2 LIMIT 3";
                         $result = $conn->query($sql);
 
                         if ($result) {
@@ -219,6 +220,77 @@ if (isset($_POST['contact_form'])) {
                     <div class="box-container">
                         <?php
                         $sql = "SELECT * FROM services WHERE cate_id = 3";
+                        $result = $conn->query($sql);
+
+                        if ($result) {
+                            // Check if any rows were returned
+                            if ($result->num_rows > 0) {
+                                // Loop through each row
+                                while ($row = $result->fetch_assoc()) {
+                                    echo '
+                                            <div class="box shadow">
+                                                <div class="box-body">
+                                                    <a href="_serviceOrder.php?sid=' . $row["service_id"] . '">
+                                                        <img src="' . $row["image_path"] . '" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="box-title">
+                                                    <p>' . $row["name"] . '</p>
+                                                </div>
+                                            </div>
+                                        ';
+                                }
+                            }
+                        } else {
+                            // Query execution failed
+                            echo "Error: " . $conn->error;
+                        }
+                        ?>
+
+                    </div>
+                </div>
+                <!-- Appliance Repair Services Fetching Here  -->
+                <div class="service-box" id="appliances">
+                    <h2 class="ser-heading">Appliances Repairs</h2>
+                    <div class="box-container">
+                        <?php
+                        $sql = "SELECT * FROM services WHERE cate_id = 4 LIMIT 3";
+                        $result = $conn->query($sql);
+
+                        if ($result) {
+                            // Check if any rows were returned
+                            if ($result->num_rows > 0) {
+                                // Loop through each row
+                                while ($row = $result->fetch_assoc()) {
+                                    echo '
+                                            <div class="box shadow">
+                                                <div class="box-body">
+                                                    <a href="_serviceOrder.php?sid=' . $row["service_id"] . '">
+                                                        <img src="' . $row["image_path"] . '" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="box-title">
+                                                    <p>' . $row["name"] . '</p>
+                                                </div>
+                                            </div>
+                                        ';
+                                }
+                            }
+                        } else {
+                            // Query execution failed
+                            echo "Error: " . $conn->error;
+                        }
+                        ?>
+
+                    </div>
+                </div>
+
+                <!-- Carpentry Services Fetching Here  -->
+                <div class="service-box" id="carpentry">
+                    <h2 class="ser-heading">Carpentry</h2>
+                    <div class="box-container">
+                        <?php
+                        $sql = "SELECT * FROM services WHERE cate_id = 5 LIMIT 3";
                         $result = $conn->query($sql);
 
                         if ($result) {
@@ -340,22 +412,28 @@ if (isset($_POST['contact_form'])) {
                         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                             <div class="form-element">
                                 <label class="form-label" for="name">Full Name</label>
-                                <input class="form-input" type="text" name="con-user-name" id="email" placeholder="Name" value="<?php if (isset($_POST['contact_form'])) echo $con_username; ?>" required />
+                                <input class="form-input" type="text" name="con-user-name" id="email" placeholder="Name"
+                                    value="<?php if (isset($_POST['contact_form'])) echo $con_username; ?>" required />
                                 <small class="err-msg"> <?php echo $userNameError; ?></small>
                             </div>
                             <div class="form-element">
                                 <label class="form-label" for="email">Email</label>
-                                <input class="form-input" type="email" name="con-user-email" id="email" placeholder="E-mail" value="<?php if (isset($_POST['contact_form'])) echo $con_user_email; ?>" required />
+                                <input class="form-input" type="email" name="con-user-email" id="email"
+                                    placeholder="E-mail"
+                                    value="<?php if (isset($_POST['contact_form'])) echo $con_user_email; ?>"
+                                    required />
                                 <small class="err-msg"> <?php echo $userEmailError; ?></small>
                             </div>
 
                             <div class="form-element">
                                 <label class="form-label" for="phone">Massage</label>
-                                <textarea name="msg" id="msg" class="form-input text-area" placeholder="Describe your thoughts..." required></textarea>
+                                <textarea name="msg" id="msg" class="form-input text-area"
+                                    placeholder="Describe your thoughts..." required></textarea>
                                 <small class="err-msg"> <?php echo $contactErrorMsg; ?></small>
                             </div>
                             <div class="form-element">
-                                <input class="form-input button" type="submit" value="Send" name="contact_form" id="contact-form">
+                                <input class="form-input button" type="submit" value="Send" name="contact_form"
+                                    id="contact-form">
                             </div>
                         </form>
 

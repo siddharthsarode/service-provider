@@ -17,7 +17,7 @@
         <?php if (!isset($_SESSION['userEmail'])) : ?>
             <a href="./_userLogin.php" class="user-login">
                 <img src="img/default_profile.png" class="icon user-icon" alt="">
-                <span class="login-text">Sign-up / Login</span>
+                <span class="login-text" style="color:#fff;">Sign-up / Login</span>
             </a>
         <?php else : ?>
             <a href="_userDashboard.php" class="link button account">
@@ -47,7 +47,7 @@
                     <ul class="service-list">';
                 if ($res) {
                     while ($arr_service = $res->fetch_assoc()) {
-                        echo '<li><a href="#">' . $arr_service["name"] . '</a></li>';
+                        echo '<li><a href="_serviceOrder.php?sid=' . $arr_service["service_id"] . '">' . $arr_service["name"] . '</a></li>';
                     }
                     echo '</ul>
                             </div>
